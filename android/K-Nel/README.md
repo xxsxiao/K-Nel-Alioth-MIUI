@@ -14,5 +14,5 @@
 * 如果您有需要，可以使用本仓库的源码重新编译 K-Nel ，您也可以基于 K-Nel 制作衍生版内核（自己用随意，公开出来请标注“基于 K-Nel 构建”）
 * PS: 刷机有风险，搞机需谨慎！
 ---
-* 该内核基于 github@Live-House/android_kernel_xiaomi_sm8250 修改
-* 感谢 github@bxySo
+* 该内核基于 codeberg@LeviMarvin/kernel_xiaomi_alioth 修改
+* 感谢 codeberg@LeviMarvin
