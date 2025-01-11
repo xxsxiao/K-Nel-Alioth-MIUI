@@ -139,14 +139,12 @@ kernel/configs/android-*.cfg
 # Tech package directories
 #techpack/
 
+# KernelSU
+KernelSU/
+
 # Output directory
 out/
 lmperf/out/
 
-# patches
-*.patch
-*.orig
-*.rej
-
-# backup
-*.bak
+# lmperf
+lmperf/AnyKernel3/

@@ -32,5 +32,3 @@ source "lib/Kconfig"
 source "lib/Kconfig.debug"
 
 source "utils/lxc_docker/Kconfig"
-
-source "utils/kali_nethunter/Kconfig"
