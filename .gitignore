@@ -146,5 +146,10 @@ KernelSU/
 out/
 lmperf/out/
 
-# lmperf
-lmperf/AnyKernel3/
+# patches
+*.patch
+*.orig
+*.rej
+
+# backups
+*.bak
