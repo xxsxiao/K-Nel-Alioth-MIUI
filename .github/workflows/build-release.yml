@@ -43,8 +43,7 @@ jobs:
 
       - name: Get Toolchain
         run: |
-          git clone -q https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git --depth 1 $GITHUB_WORKSPACE/workdir/toolchain/clang
-          git clone -q https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git --depth 1 $GITHUB_WORKSPACE/workdir/toolchain/gcc64
+          git clone -q https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git --depth 1 $GITHUB_WORKSPACE/workdir/toolchain
 
       - name: Get Kernel source
         run: |
@@ -58,7 +57,7 @@ jobs:
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
           export ARCH="arm64"
           export SUBARCH="arm64"
-          export PATH="$GITHUB_WORKSPACE/workdir/toolchain/clang/bin:$GITHUB_WORKSPACE/workdir/toolchain/gcc64/bin:$PATH"
+          export PATH="$GITHUB_WORKSPACE/workdir/toolchain/bin:$PATH"
           export LD_LIBRARY_PATH="$GITHUB_WORKSPACE/workdir/toolchain/clang/lib64:$LD_LIBRARY_PATH"
           export KBUILD_COMPILER_STRING=$(clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
           export KBUILD_LINKER_STRING=$(ld.lld --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' | sed 's/(compatible with [^)]*)//')
@@ -117,8 +116,7 @@ jobs:
 
       - name: Get Toolchain
         run: |
-          git clone -q https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git --depth 1 $GITHUB_WORKSPACE/workdir/toolchain/clang
-          git clone -q https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git --depth 1 $GITHUB_WORKSPACE/workdir/toolchain/gcc64
+          git clone -q https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git --depth 1 $GITHUB_WORKSPACE/workdir/toolchain
 
       - name: Get Kernel source
         run: |
@@ -139,7 +137,7 @@ jobs:
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
           export ARCH="arm64"
           export SUBARCH="arm64"
-          export PATH="$GITHUB_WORKSPACE/workdir/toolchain/clang/bin:$GITHUB_WORKSPACE/workdir/toolchain/gcc64/bin:$PATH"
+          export PATH="$GITHUB_WORKSPACE/workdir/toolchain/bin:$PATH"
           export LD_LIBRARY_PATH="$GITHUB_WORKSPACE/workdir/toolchain/clang/lib64:$LD_LIBRARY_PATH"
           export KBUILD_COMPILER_STRING=$(clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
           export KBUILD_LINKER_STRING=$(ld.lld --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' | sed 's/(compatible with [^)]*)//')
