@@ -1,5 +1,5 @@
 # K-Nel Alioth
-![Alt text](/android/K-Nel/logo.png?raw=true "A Custom Kernel Base For Redmi K40 / Xiaomi 11X / POCO F3 ( AOSP ROM Only )")
+![Alt text](/android/K-Nel/logo.png?raw=true "A Custom Kernel Base For Redmi K40 / Xiaomi 11X / POCO F3 ( MIUI&HyperOS ROM Only )")
 * 本仓库为 K-Nel Alioth 的仓库，仅存储为 红米K40 / 小米11X / POCO F3 编译的 K-Nel 内核
 * 内核维护者（K-Nel Developer）：
 * [科家（KNKJ55）](http://knkj55.github.io/about/kejia/)
