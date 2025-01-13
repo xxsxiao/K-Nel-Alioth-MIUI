@@ -90,10 +90,6 @@ config DOCKER
         select CHECKPOINT_RESTORE
         select NETFILTER_XT_MATCH_CGROUP
 
-if DOCKER
-
-menu "Docker Support Extra"
-
 config DOCKER_STATISTICS
 	bool "Gathering statistics"
 	default y if DOCKER
@@ -176,6 +172,3 @@ config DOCKER_OVERLAY_FS
 	select EXT4_FS_SECURITY
 	select EXT4_FS_POSIX_ACL
 
-endmenu
-
-endif
