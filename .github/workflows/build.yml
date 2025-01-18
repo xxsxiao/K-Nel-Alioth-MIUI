@@ -64,14 +64,15 @@ jobs:
           export ARCH="arm64"
           export SUBARCH="arm64"
           export PATH="$GITHUB_WORKSPACE/workdir/toolchain/bin:$PATH"
-          export LD_LIBRARY_PATH="$GITHUB_WORKSPACE/workdir/toolchain/clang/lib64:$LD_LIBRARY_PATH"
+          export LD_LIBRARY_PATH="$GITHUB_WORKSPACE/workdir/toolchain/lib64:$LD_LIBRARY_PATH"
           export KBUILD_COMPILER_STRING=$(clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
           export KBUILD_LINKER_STRING=$(ld.lld --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' | sed 's/(compatible with [^)]*)//')
           export CC=clang
           export LLVM=1
           export LLVM_IAS=1
           export CLANG_TRIPLE="aarch64-linux-gnu-"
-          export CROSS_COMPILE="aarch64-linux-android-"
+          export CROSS_COMPILE="aarch64-linux-gnu-"
+          export CROSS_COMPILE_COMPAT="arm-linux-gnueabi-"
           cd $GITHUB_WORKSPACE/workdir/source
           make O=out alioth_k-nel_defconfig
           make -j$(nproc --all) O=out CC="ccache clang" HOSTCC="ccache gcc" HOSTCXX="ccache g++" 2>&1
