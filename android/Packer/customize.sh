@@ -12,11 +12,13 @@ then
   exit 1
 fi
 
+export bootslot=$(getprop ro.boot.slot_suffix)
+
 cd $MODPATH/tools/
 chmod +x magiskboot
 
 ui_print '提取 Boot 镜像。。。'
-dd if=/dev/block/by-name/boot_a of=$MODPATH/boot.img
+dd if=/dev/block/by-name/boot$bootslot of=$MODPATH/boot.img
 ui_print '解包 Boot 镜像。。。'
 ./magiskboot unpack $MODPATH/boot.img
 ui_print '替换内核。。。'
@@ -25,13 +27,11 @@ cp $MODPATH/dtb ./kernel_dtb
 ui_print '打包 Boot 镜像。。。'
 ./magiskboot repack $MODPATH/boot.img
 ui_print '刷入 Boot 镜像。。。'
-dd if=new-boot.img of=/dev/block/by-name/boot_a
-dd if=new-boot.img of=/dev/block/by-name/boot_b
+dd if=new-boot.img of=/dev/block/by-name/boot$bootslot
 if [ -e $MODPATH/dtbo.img ];
 then 
     ui_print '刷入 Dtbo 镜像。。。'
-    dd if=$MODPATH/dtbo.img of=/dev/block/by-name/dtbo_a
-    dd if=$MODPATH/dtbo.img of=/dev/block/by-name/dtbo_b
+    dd if=$MODPATH/dtbo.img of=/dev/block/by-name/dtbo$bootslot
 fi
 ui_print '安装完成'
 
